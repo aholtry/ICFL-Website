@@ -1,0 +1,420 @@
+﻿
+<!-- Section Title -->
+<section class="section-title img-about">
+    <div class="overlay-bg"></div>
+    <div class="container">
+        <h1>Team Manager</h1>
+    </div>
+</section>
+<!-- End Section Title -->
+<!-- Section Area - Content Central -->
+<section class="content-info" ng-init="loadTeamManager()">
+
+    <div class="crumbs">
+        <div class="container">
+            <ul>
+                <li><a ui-sref="home">Home</a></li>
+                <li>/</li>
+                <li>Team Manager</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="semiboxshadow text-center">
+        <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+    </div>
+
+    <!-- Content Central -->
+    <div class="container padding-top">
+        <div class="row">
+
+            <!-- Title -->
+            <div class="col-md-12">
+                <!-- Info -->
+                <div class="panel-box">
+                    <div class="titles">
+                        <h4>Team</h4>
+                    </div>
+                    <div style="text-align:center;">
+                        <div>
+                            <div ng-show="authData">
+                                <label>Hello, {{userData.name}}</label>
+                                <button class="btn btn-sm" ng-click="authObj.$unauth(); goHome();">Logout</button>
+                                <button class="btn btn-sm" ng-click="popPasswordModal()">Change Password</button>
+                            </div>
+                            <div style="padding:15px; display:inline-block;text-align:center;">
+                                <div style="padding:15px; display:inline-block;">
+                                    <img src="{{userData.image}}" style="display:inline-block" />
+                                </div>
+                                <div style="padding:15px; display:inline-block;">
+                                    <h3>{{userData.team}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Title -->
+            <div class="col-md-12">
+                <!-- Info -->
+                <div class="panel-box">
+                    <div class="titles">
+                        <h4>Roster</h4>
+                    </div>
+                    <div style="padding:15px;">
+                        <table class="table table-striped table-responsive table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Number:</th>
+                                    <th>Position:</th>
+                                    <th>Name:</th>
+                                    <th>Height:</th>
+                                    <th>Weight:</th>
+                                    <th>Email:</th>
+                                    <th>Phone:</th>
+                                    <th>High School:</th>
+                                    <th>Exp:</th>
+                                    <th>College:</th>
+                                    <th>Exp:</th>
+                                    <th>Action:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="player in managePlayers | filter:playerFilter">
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="player.number" ng-change="managePlayers.$save(player)" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="player.pos" ng-change="managePlayers.$save(player)" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="player.name" ng-change="managePlayers.$save(player)" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="player.height" ng-change="managePlayers.$save(player)" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="player.weight" ng-change="managePlayers.$save(player)" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="player.email" ng-change="managePlayers.$save(player)" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="player.phone" ng-change="managePlayers.$save(player)" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="player.high" ng-change="managePlayers.$save(player)" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="player.hsExp" ng-change="managePlayers.$save(player)" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="player.college" ng-change="managePlayers.$save(player)" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="player.coExp" ng-change="managePlayers.$save(player)" /></td>
+                                    <td style="width:90px">
+                                        <button class="btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Release Player" ng-click="setIndex($index); releasePlayer(player);">
+                                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                        </button>
+                                        <button class="btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Player" ng-click="setIndex($index); deletePlayer(player);">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addPlayerNumber" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="addPlayerPos" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="addPlayerName" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="addPlayerHeight" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="addPlayerWeight" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="addPlayerEmail" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="addPlayerPhone" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="addPlayerHigh" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="addPlayerHSExp" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="addPlayerCollege" /></td>
+                                    <td><input type="text" style="width:100%" ng-model="addPlayerCoExp" /></td>
+                                    <td>
+                                        <button class="btn-sm btn-success" ng-click="addPlayer()" data-toggle="tooltip" data-placement="top" title="Add Player">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="col-md-12">
+                <!-- Info -->
+                <div class="panel-box">
+                    <div class="titles">
+                        <h4>Stats</h4>
+                    </div>
+
+                    <div style="text-align:center;">
+                        <div style="padding:15px; display:inline-block;text-align:center;">
+                            <div style="padding:15px; display:inline-block;">
+                                <img src="{{selectedItem.homeImage}}" style="display:inline-block" />
+                            </div>
+                            <div style="padding:15px; display:inline-block;">
+                                <h3>{{selectedItem.homeName}}</h3>
+                            </div>
+                        </div>
+                        <div style="padding:15px; display:inline-block;text-align:center;">
+                            <label>Select your game week</label><br />
+                            <select ng-model="selectedItem" ng-options="game.title for game in games">
+                                <option>Select One</option>
+                            </select><br />
+                            <h3>Vs.</h3>
+                        </div>
+                        <div style="padding:15px; display:inline-block;text-align:center;">
+                            <div style="padding:15px; display:inline-block;">
+                                <img src="{{selectedItem.awayImage}}" style="display:inline-block" />
+                            </div>
+                            <div style="padding:15px; display:inline-block;">
+                                <h3>{{selectedItem.awayName}}</h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="padding:15px;">
+                        <div><h3>Offensive Stats</h3></div>
+                        <table class="table table-striped table-responsive table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>#:</th>
+
+                                    <th>Player</th>
+
+                                    <th colspan="5">Passing</th>
+
+                                    <th colspan="3">Rushing</th>
+
+                                    <th colspan="3">Receiving</th>
+
+                                    <th colspan="3">Fumbles</th>
+                                </tr>
+                                <tr>
+                                    <th>#:</th>
+                                    <th>Player</th>
+
+                                    <th>Comp:</th>
+                                    <th>Att:</th>
+                                    <th>Yds:</th>
+                                    <th>TD:</th>
+                                    <th>Int:</th>
+
+                                    <th>Att:</th>
+                                    <th>Yds:</th>
+                                    <th>TD:</th>
+
+                                    <th>Rec:</th>
+                                    <th>Yds:</th>
+                                    <th>TD:</th>
+
+                                    <th>FUM:</th>
+                                    <th>Lost:</th>
+
+                                    <th>Actn:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="ostat in manOffStats | filter:statFilter">
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.num" disabled/></td>
+                                    <td>
+                                        <select ng-model="selectedPlayer" ng-change="setPlayer(ostat, manOffStats, selectedPlayer)" ng-options="player.number + ' ' + player.name for player in players">
+                                            <option>Select One</option>
+                                        </select>
+                                    </td>
+
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.comp" ng-change="manOffStats.$save(ostat)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.pAtt" ng-change="manOffStats.$save(ostat)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.pYds" ng-change="manOffStats.$save(ostat)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.pTD" ng-change="manOffStats.$save(ostat)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.int" ng-change="manOffStats.$save(ostat)" /></td>
+
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.ruAtt" ng-change="manOffStats.$save(ostat)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.ruYds" ng-change="manOffStats.$save(ostat)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.ruTD" ng-change="manOffStats.$save(ostat)" /></td>
+
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.rec" ng-change="manOffStats.$save(ostat)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.reYds" ng-change="manOffStats.$save(ostat)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.reTD" ng-change="manOffStats.$save(ostat)" /></td>
+
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.FUM" ng-change="manOffStats.$save(ostat)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="ostat.Lost" ng-change="manOffStats.$save(ostat)" /></td>
+
+                                    <td style="width:90px;">
+                                        <button class="btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Stats" ng-click="manOffStats.$remove(ostat);">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatNum" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatComp" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatPAtt" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatPYds" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatPTD" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatInt" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatRuAtt" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatRuYds" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatRuTD" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatRec" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatReYds" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatReTD" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatFUM" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addOffStatLost" /></td>
+                                    <td>
+                                        <button class="btn-sm btn-success" ng-click="addOffStats()" data-toggle="tooltip" data-placement="top" title="Add Stats">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+
+                        <div><h3>Defensive Stats</h3></div>
+                        <table class="table table-striped table-responsive table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>#:</th>
+
+                                    <th colspan="4">Tackles</th>
+
+                                    <th colspan="3">Pass Defense</th>
+
+                                    <th colspan="2">Fumbles</th>
+
+                                    <th colspan="4">Stuffs</th>
+                                </tr>
+                                <tr>
+                                    <th>#:</th>
+                                    <th>Solo:</th>
+                                    <th>Ast:</th>
+                                    <th>Sck:</th>
+                                    <th>SFTY:</th>
+                                    <th>PDef:</th>
+                                    <th>Int:</th>
+                                    <th>Yds:</th>
+                                    <th>FF:</th>
+                                    <th>FR:</th>
+                                    <th>STF:</th>
+                                    <th>STFYds:</th>
+                                    <th>TDs:</th>
+                                    <th>Actn:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in manDefStats | filter:statFilter">
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.num" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.tack" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.ast" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.sck" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.sfty" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.pDef" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.int" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.inty" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.ff" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.fr" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.stf" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.stfy" ng-change="manDefStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.tds" ng-change="manDefStats.$save(item)" /></td>
+                                    <td style="width:90px;">
+                                        <button class="btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Stats" ng-click="manDefStats.$remove(item)">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatNum" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatTack" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatAst" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatSck" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatSfty" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatPDef" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatInt" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatIntY" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatFf" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatFr" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatStf" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatStfY" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addDefStatTds" /></td>
+                                    <td>
+                                        <button class="btn-sm btn-success" ng-click="addDefStats()" data-toggle="tooltip" data-placement="top" title="Add Stats">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table><br />
+
+                        <div><h3>Special Teams Stats</h3></div>
+                        <table class="table table-striped table-responsive table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>#:</th>
+
+                                    <th colspan="5">Field Goals / XP / 2pt</th>
+
+                                    <th colspan="2">Punts(Gross)</th>
+
+                                    <th colspan="2">Punt Return</th>
+
+                                    <th colspan="3">Kick Return</th>
+                                </tr>
+                                <tr>
+                                    <th>#:</th>
+                                    <th>FGA:</th>
+                                    <th>FGM:</th>
+                                    <th>XPA:</th>
+                                    <th>XPM:</th>
+                                    <th>2pt:</th>
+                                    <th>Punts:</th>
+                                    <th>Yds:</th>
+                                    <th>PR:</th>
+                                    <th>Yds:</th>
+                                    <th>KR:</th>
+                                    <th>Yds:</th>
+                                    <th>Actn:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in manSPStats | filter:statFilter">
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.num" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.fga" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.fgm" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.xpa" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.xpm" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.twopt" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.pnt" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.pnty" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.pr" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.pry" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.kr" ng-change="manSPStats.$save(item)" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="item.kry" ng-change="manSPStats.$save(item)" /></td>
+                                    <td style="width:90px;">
+                                        <button class="btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Stats" ng-click="manSPStats.$remove(item)">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatNum" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatFga" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatFgm" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatXpa" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatXpm" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatTwoPt" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatPnt" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatPntY" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatPr" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatPrY" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatKr" /></td>
+                                    <td><input type="text" style="width:100%" only-numbers ng-model="addSPStatKrY" /></td>
+                                    <td>
+                                        <button class="btn-sm btn-success" ng-click="addSPStats()" data-toggle="tooltip" data-placement="top" title="Add Stats">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- End Info-->
+            </div>
+            <!-- End Accordion -->
+
+        </div>
+    </div>
+    <!-- End Content Central -->
+
+</section>
+            <!-- End Section Area - Content Central -->
+            <password-modal></password-modal>

@@ -1,0 +1,193 @@
+﻿
+            <div>
+                <!-- Section Title -->
+                <section class="section-title img-about">
+                    <div class="overlay-bg"></div>
+                    <div class="container">
+                        <h1>Schedule</h1>
+                    </div>
+                </section>
+                <!-- End Section Title -->
+                <!-- Section Area - Content Central -->
+                <section class="content-info">
+
+                    <div class="crumbs">
+                        <div class="container">
+                            <ul>
+                                <li><a ui-sref="home">Home</a></li>
+                                <li>/</li>
+                                <li>Schedule</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="semiboxshadow text-center">
+                        <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+                    </div>
+
+                    <!-- Content Central -->
+                    <div class="container padding-top">
+                        <div class="row">
+                            <!-- content Column Left -->
+                            <div class="col-md-8">
+
+                                <div class="panel-box">
+                                    <div class="titles">
+                                        <h4>Games</h4>
+                                    </div>
+                                    <!-- Games -->
+                                    <ul class="single-carousel">
+                                        <li ng-repeat="item in schedule | filter:scheduleFilter">
+                                            <div class="info-single-carousel">
+                                                <!-- List Diary -->
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <h4 style="text-align:center">{{item.title}}</h4>
+                                                        <ul class="club-logo list-diary">
+                                                            <!-- Item List Diary -->
+                                                            <li ng-repeat="game in item.games">
+                                                                <h5>
+                                                                    {{game.location}}<br />
+                                                                    <span>{{game.time}}</span>
+                                                                </h5>
+                                                                <ul class="club-logo">
+                                                                    <li>
+                                                                        <img src="{{game.awayImage}}" alt="">
+                                                                        <h6>{{game.awayName}}</h6>
+                                                                        <h4>{{game.awayScore}}</h4>
+                                                                    </li>
+                                                                    <li id="schedule-center">@</li>
+                                                                    <li>
+                                                                        <img src="{{game.homeImage}}" alt="">
+                                                                        <h6>{{game.homeName}}</h6>
+                                                                        <h4>{{game.homeScore}}</h4>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <!-- End Item List Diary -->
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!-- End Games -->
+                                </div>
+
+                                <div class="row">
+                                    <!-- blog post-->
+                                    <ul class="events-carousel events-no-carousel">
+                                        <!-- Item blog post -->
+                                        <li class="col-xs-6 col-sm-6 col-md-4" ng-repeat="event in events">
+                                            <div class="header-post">
+                                                <div class="date">
+                                                    <span>{{event.date}}</span>
+                                                    {{event.year}}
+                                                </div>
+                                                <a href=""><img src="{{event.image}}" alt=""></a>
+                                            </div>
+                                            <div class="info-post">
+                                                <h4><a href="">{{event.title}}</a></h4>
+                                                <p>{{event.descr}}</p>
+                                            </div>
+                                        </li>
+                                        <!-- End Item blog post -->
+                                    </ul>
+                                    <!-- End blog post-->
+                                </div>
+
+                            </div>
+                            <!-- End content Left -->
+                            <!-- content Sidebar Right -->
+                            <aside class="col-md-4">
+                                <!-- Info -->
+                                <div class="panel-box">
+                                    <div class="titles">
+                                        <h4><i class="fa fa-calendar"></i>Upcoming Events</h4>
+                                    </div>
+                                    <!-- Carousel Events -->
+                                    <ul class="single-carousel">
+                                        <!-- Item  Event  -->
+                                        <!--<li>
+                                            <div class="content-counter">
+                                                <p class="text-center">
+                                                    <i class="fa fa-clock-o"></i>
+                                                    Countdown Till Season Opener
+                                                </p>
+                                                <div id="event-one" class="counter"></div>
+                                                <ul class="post-options">
+                                                    <li><i class="fa fa-calendar"></i>Mar 26, 2016</li>
+                                                    <li><i class="fa fa-clock-o"></i>Kick-off, 9:30 PM</li>
+                                                </ul>
+                                                <p>The moment we've all been waiting for.  Time to start this season off right.</p>
+                                            </div>
+                                        </li>-->
+                                        <!-- End Item  Event  -->
+                                        <!-- Item  Event -->
+                                        <li>
+                                            <div class="content-counter">
+                                                <p class="text-center">
+                                                    <i class="fa fa-clock-o"></i>
+                                                    Countdown Till Playoffs
+                                                </p>
+                                                <div id="event-two" class="counter"></div>
+                                                <ul class="post-options">
+                                                    <li><i class="fa fa-calendar"></i>June 04, 2016</li>
+                                                    <li><i class="fa fa-clock-o"></i>Kick-off, 9:30 AM</li>
+                                                </ul>
+                                                <p>The best of the best face off in a tournament to be crowned champions of the ICFL</p>
+                                            </div>
+                                        </li>
+                                        <!-- End Item  Event -->
+                                        <!-- Item  Event -->
+                                        <li>
+                                            <div class="content-counter">
+                                                <p class="text-center">
+                                                    <i class="fa fa-clock-o"></i>
+                                                    Countdown Till ICFL Championship
+                                                </p>
+                                                <div id="event-three" class="counter"></div>
+                                                <ul class="post-options">
+                                                    <li><i class="fa fa-calendar"></i>June 18, 2016</li>
+                                                    <li><i class="fa fa-clock-o"></i>Kick-off, 6:00 PM</li>
+                                                </ul>
+                                                <p>Championship Game will be held at Middleton Middle School.  Come support the ICFL and your favorite team in the battle to called the best in the Idaho Contact Football League.</p>
+                                            </div>
+                                        </li>
+                                        <!-- End Item  Event -->
+                                    </ul>
+                                    <!-- End Carousel Events -->
+                                </div>
+                                <!-- End Info-->
+                                <!-- Locations -->
+                                <div class="panel-box">
+
+                                    <div class="titles">
+                                        <h4>Locations</h4>
+                                    </div>
+                                    <!-- Locations Carousel -->
+                                    <ul class="single-carousel">
+                                        <li ng-repeat="location in locations">
+                                            <img src="{{location.image}}" alt="" class="img-responsive">
+                                            <div class="info-single-carousel">
+                                                <h4>{{location.title}}</h4>
+                                                <p>{{location.address}}</p>
+                                                <p>{{location.descr}}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!-- Locations Carousel -->
+                                </div>
+                                <!-- End Locations -->
+                            </aside>
+                            <!-- End content Sidebar Right -->
+                        </div>
+                    </div>
+                    <!-- End Content Central -->
+                    <!-- Prove It Banner-->
+                    <prove-it></prove-it>
+                </section>
+                <!-- End Section Area - Content Central -->
+                <!-- Main JS -->
+                <script type="text/javascript" src="js/main.js"></script>
+            </div>

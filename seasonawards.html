@@ -1,0 +1,74 @@
+﻿
+        <div>
+            <!-- Section Title -->
+            <section class="section-title img-about">
+                <div class="overlay-bg"></div>
+                <div class="container">
+                    <h1>Season Awards</h1>
+                </div>
+            </section>
+            <!-- End Section Title -->
+            <!-- Section Area - Content Central -->
+            <section class="content-info">
+                <div class="crumbs">
+                    <div class="container">
+                        <ul>
+                            <li><a ui-sref="home">Home</a></li>
+                            <li>/</li>
+                            <li>Season Awards</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="semiboxshadow text-center">
+                    <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+                </div>
+                <!-- Content Central -->
+                <div class="container padding-top">
+                    <div class="row">
+                       
+
+                                <!-- content Players -->
+                                <div class="col-md-12" ng-repeat="item in seasonAwards">
+                                    <!-- Panel Box -->
+                                    <div class="panel-box">
+                                        <div class="titles">
+                                            <h4><i class="fa fa-group"></i>{{item.year}} Season Awards</h4>
+                                        </div>
+                                        <!-- Players -->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!-- Item Players-->
+                                                <ul class="players players-carousel">
+                                                    <!-- Item Player -->
+                                                    <li class="item-player" ng-repeat="player in item.players">
+                                                        <img src="{{player.image}}" alt="" class="img-responsive">
+                                                        <div class="info-player">
+                                                            <h4><a href="#">{{player.name}}</a></h4>
+                                                            <h5><span>{{player.award}}</span></h5>
+                                                            <div class="overlay-player">
+                                                                <p>{{player.descr}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <!-- End Player post -->
+                                                </ul>
+                                                <!-- End Item Players-->
+                                            </div>
+                                        </div>
+                                        <!-- End Players -->
+                                    </div>
+                                    <!-- End Panel Box -->
+                                 </div>
+                                <!-- End Players -->
+                            
+                    </div>
+                </div>
+                <!-- End Content Central -->
+                <!-- Prove It Banner-->
+                <prove-it></prove-it>
+            </section>
+            <!-- End Section Area - Content Central -->
+            <!-- Main JS -->
+            <script type="text/javascript" src="js/main.js"></script>
+        </div>
+        

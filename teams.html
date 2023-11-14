@@ -1,0 +1,68 @@
+﻿
+        <div>
+            <!-- Section Title -->
+            <section class="section-title img-about">
+                <div class="overlay-bg"></div>
+                <div class="container">
+                    <h1>League Teams</h1>
+                </div>
+            </section>
+            <!-- End Section Title -->
+            <!-- Section Area - Content Central -->
+            <section class="content-info">
+                <div class="crumbs">
+                    <div class="container">
+                        <ul>
+                            <li><a ui-sref="home">Home</a></li>
+                            <li>/</li>
+                            <li>League Teams</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="semiboxshadow text-center">
+                    <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+                </div>
+                <!-- Content Central -->
+                <div class="container padding-top">
+                    <div class="row">
+                        <!-- content Players -->
+                        <div class="col-md-12">
+                            <!-- Content - Group A-->
+                            <div class="panel-box">
+                                <div class="titles">
+                                    <h4>ICFL Teams
+                                        <button class="btn btn-sm" style="float:right" ng-click="popManagerModal()">Manager Portal</button>
+                                    </h4>
+                                    
+                                </div>
+                                <!-- Item club -->
+                                <div class="row clubs-teams">
+                                    <!-- Item clubs -->
+                                    <div class="col-sx-12 col-sm-6 col-md-4" ng-repeat="team in allTeams">
+                                        <div class="item-clubs">
+                                            <div class="img-clubs">
+                                                <img src="{{team.image}}" alt="" class="img-responsive" ng-click="teamSelect(team.id)">
+                                            </div>
+                                            <div class="info-clubs">
+                                                <h4><a href="" ng-click="teamSelect(team.id)">{{team.name}}</a></h4>
+                                                <p>{{team.descr}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Item clubs -->
+                                </div>
+                                <!-- End Item club -->
+                            </div>
+                            <!-- End Content - Group A-->
+                        </div>
+                    </div>
+                </div>
+                <!-- End Content Central -->
+                <!-- Prove It Banner-->
+                <prove-it></prove-it>
+            </section>
+            <!-- End Section Area - Content Central -->
+        </div>
+        <login-modal></login-modal>
+        <reset-modal></reset-modal>
+      

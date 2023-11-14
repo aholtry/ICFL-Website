@@ -1,0 +1,186 @@
+﻿<!-- Header-->
+<header>
+    <!-- End headerbox-->
+    <div class="headerbox">
+        <div class="container">
+            <div class="row">
+                <!-- Logo-->
+                <div class="col-md-3 logo">
+                    <a ui-sref="home" title="Return Home">
+                        <img src="img/icfl_logo2.png" alt="Logo" class="logo_img">
+                    </a>
+                </div>
+                <!-- End Logo-->
+                <!-- <div class="col-md-9 adds">
+                    <img src="img/clubs-logos/Spartans Helmet2.png" alt="Spartans" class="img-responsive">
+
+                <div> -->
+                <!-- Adds Header -->
+                <div class="col-md-9 adds">
+                    <!-- Ads Carousel-->
+                    <ul class="ads-carousel">
+                        <!-- Item Ad -->
+                        <li>
+                            <a href="http://www.nutrishopusa.com/" target="_blank">
+                                <img src="img/adds/nutrishop.png" alt="" class="img-responsive">
+                            </a>
+                        </li>
+                        <!-- Item Ad -->
+                        <li>
+                            <a href="https://www.iccu.com/" target="_blank">
+                                <img src="img/adds/iccu.png" alt="" class="img-responsive">
+                            </a>
+                        </li>
+                        <!-- Item Ad -->
+                        <li>
+                            <a href="http://www.pepsi.com/en-us/d/" target="_blank">
+                                <img src="img/adds/pepsi.png" alt="" class="img-responsive">
+                            </a>
+                        </li>
+                        <!-- Item Ad -->
+                        <li>
+                            <a href="http://www.autoranchoutlet.com/" target="_blank">
+                                <img src="img/adds/mautoranch.png" alt="" class="img-responsive">
+                            </a>
+                        </li>
+                        <!-- End Ad post -->
+                    </ul>
+                    <!-- End Item Ads-->
+                </div>
+                <!-- End Adds Header -->
+            </div>
+        </div>
+    </div>
+    <!-- End headerbox-->
+    <!-- mainmenu-->
+    <nav class="mainmenu">
+        <div class="container">
+            <!-- Menu-->
+            <ul class="sf-menu" id="menu">
+                <li class="selected">
+                    <a href="#/">Home</a>
+                </li>
+                <li class="current">
+                    <a href="#/schedule">Schedule</a>
+                </li>
+                <li class="current">
+                    <a href="#/teams">Teams</a>
+                </li>
+
+                <li class="current">
+                    <a href="javascript:;">Stats</a>
+                    <ul class="sub-current">
+                        <li class="current">
+                            <a href="#/teamStats">Team Stats</a>
+                        </li>
+                        <li class="current">
+                            <a href="#/individualStats">Individual Stats</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="current">
+                    <a href="javascript:;">History</a>
+                    <ul class="sub-current">
+                        <li class="current">
+                            <a href="javascript:;">Awards</a>
+                            <ul class="sub-current">
+                                <li class="current">
+                                    <a href="#/weeklyAwards">Weekly Awards</a>
+                                </li>
+                                <li class="current">
+                                    <a href="#/seasonAwards">Season Awards</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="current">
+                            <a href="javascript:;">Records</a>
+                            <ul class="sub-current">
+                                <li class="current">
+                                    <a href="#/singleGame">Single Game</a>
+                                </li>
+                                <li class="current">
+                                    <a href="#/recordsSeason">Single Season</a>
+                                </li>
+                                <li class="current">
+                                    <a href="#/career">Career</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="current">
+                            <a href="#/allStars">All Stars</a>
+                        </li>
+                        <li class="current">
+                            <a href="#/hall">Hall of Fame</a>
+                        </li>
+                        <li class="current">
+                            <a href="#/champions">Championships</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#/store">Store</a>
+                </li>
+                <li class="current">
+                    <a href="javascript:;">About</a>
+                    <ul class="sub-current">
+                        <li>
+                            <a href="#/about">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#/admissions">Admissions</a>
+                        </li>
+                        <li>
+                            <a href="#/contact">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#/sponsors">Sponsors</a>
+                        </li>
+                        <li>
+                            <a href="#/register">Registration</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="current">
+                    <a href="javascript:;">Gallery</a>
+                    <ul class="sub-current">
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCHoERtUXU1JXFWddRHRp4gg">Videos</a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/pages/Idaho-Contact-Football-League/114533205256160?sk=photos_stream&tab=photos_stream">Photos</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- End Menu-->
+        </div>
+    </nav>
+    <!-- End mainmenu-->
+</header>
+<!-- End Header-->
+<script>
+    //=================================== Nav Responsive =============================//
+
+    $('#menu').tinyNav({
+        active: 'selected'
+    });
+
+    //=================================== Sticky nav ===================================//
+
+    $(".mainmenu").sticky({ topSpacing: 0 });
+
+    //=================================== Nav Superfish ===============================//
+
+    $('ul.sf-menu').superfish();
+
+    $(".ads-carousel").owlCarousel({
+        items: 1,
+        autoPlay: true,
+        navigation: false,
+        autoHeight: false,
+        slideSpeed: 400,
+        singleItem: true,
+        pagination: false
+    });
+</script>

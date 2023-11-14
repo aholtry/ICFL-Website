@@ -1,0 +1,79 @@
+﻿
+            <!-- Section Title -->
+            <section class="section-title img-about">
+                <div class="overlay-bg"></div>
+                <div class="container">
+                    <h1>Hall of Fame</h1>
+                </div>
+            </section>
+            <!-- End Section Title -->
+            <!-- Section Area - Content Central -->
+            <section class="content-info">
+
+                <div class="crumbs">
+                    <div class="container">
+                        <ul>
+                            <li><a ui-sref="home">Home</a></li>
+                            <li>/</li>
+                            <li>Hall of Fame</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="semiboxshadow text-center">
+                    <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+                </div>
+
+                <!-- Content Central -->
+                <div class="container padding-top">
+                    <div class="row">
+
+                        <!-- content Players -->
+                        <div class="col-md-12">
+                            <!-- Panel Box -->
+                            <div class="panel-box">
+                                <div class="titles">
+                                    <h4><i class="fa fa-group"></i>Hall of Fame</h4>
+                                </div>
+                                <!-- Players -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- Item Players-->
+
+
+                                        <div ng-repeat="player in hallOfFame" style="display:inline-block">
+                                            <div class="col-md-3 col-xs-12 col-sm-3 col-lg-3 col">
+                                                <img src="{{player.image}}" alt="" class="img-responsive">
+                                            </div>
+                                            <div class="col-md-9 col-xs-12 col-sm-12 col-lg-9 col">
+                                                <div style="padding:15px;">
+                                                    <h4><a href="#">{{player.name}} #{{player.number}}</a></h4>
+                                                    <h5><span>Hall of Fame Class: {{player.class}}</span></h5>
+                                                    <h5><span>{{player.team}} - {{player.year}}</span></h5>
+                                                    <h5><span>{{player.pos}}</span></h5>
+                                                    <div>
+                                                        <p>{{player.descr}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- End Item Players-->
+                                    </div>
+                                </div>
+                                <!-- End Players -->
+                            </div>
+                            <!-- End Panel Box -->
+                        </div>
+                        <!-- End Players -->
+
+                    </div>
+                </div>
+                <!-- End Content Central -->
+                <!-- Prove It Banner-->
+                <prove-it></prove-it>
+
+            </section>
+            <!-- End Section Area - Content Central -->
+            

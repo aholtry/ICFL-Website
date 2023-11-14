@@ -1,0 +1,108 @@
+﻿
+            <!-- Section Title -->
+            <section class="section-title img-contact">
+                <div class="overlay-bg"></div>
+                <div class="container">
+                    <h1>Registration</h1>
+                </div>
+            </section>
+            <!-- End Section Title -->
+            <!-- Section Area - Content Central -->
+            <section class="content-info">
+
+                <div class="crumbs">
+                    <div class="container">
+                        <ul>
+                            <li><a ui-sref="home">Home</a></li>
+                            <li>/</li>
+                            <li>Registration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="semiboxshadow text-center">
+                    <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+                </div>
+
+                <!-- Content Central -->
+                <section class="container">
+                    <div class="row padding-top">
+                        <!-- Right Content -->
+                        <div class="col-md-12">
+                            <div class="panel-box">
+                                <div class="titles">
+                                    <h4>Sign Up Form</h4>
+                                </div>
+                                <!-- Form Contact -->
+                                <form class="form-theme" name="playerForm">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4" ng-class="{ 'has-error': playerForm.name.$invalid }">
+                                                <label>Your Name *</label>
+                                                <input type="text" required="required" value="" maxlength="100" class="form-control" name="name" id="name" ng-model="playerName">
+                                            </div>
+                                            <div class="col-md-4" ng-class="{ 'has-error': playerForm.email.$invalid }">
+                                                <label>Your Email Address *</label>
+                                                <input type="email" required="required" value="" maxlength="100" class="form-control" name="email" id="email" ng-model="playerEmail">
+                                            </div>
+                                            <div class="col-md-4" ng-class="{ 'has-error': playerForm.phone.$invalid }">
+                                                <label>Your Phone Number *</label>
+                                                <input type="tel" required="required" value="" maxlength="100" class="form-control" name="phone" id="phone" ng-model="playerPhone">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-2">
+                                                <label>Position</label>
+                                                <input type="text" maxlength="100" class="form-control" ng-model="playerPosition" placeholder="QB / RB / etc.">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label>Height</label>
+                                                <input type="text" maxlength="100" class="form-control" ng-model="playerHeight" placeholder="5 foot 10 inches">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label>Weight</label>
+                                                <input type="text" maxlength="100" class="form-control" ng-model="playerWeight" placeholder="180 lbs">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>High School Years Experience</label>
+                                                <input type="text" maxlength="100" class="form-control" ng-model="playerHighExp" placeholder="4 years">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>College Years Experience</label>
+                                                <input type="text" maxlength="100" class="form-control" ng-model="playerCollegeExp" placeholder="4 years">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-6" ng-show="playerHighExp != '' && playerHighExp != null">
+                                                <label>High School Attended</label>
+                                                <input type="text" maxlength="100" class="form-control" ng-model="playerHigh">
+                                            </div>
+                                            <div class="col-md-6" ng-show="playerCollegeExp != '' && playerCollegeExp != null">
+                                                <label>College Attended</label>
+                                                <input type="text" maxlength="100" class="form-control" ng-model="playerCollege">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="button" value="Submit Registration" class="btn btn-lg btn-primary" ng-disabled="playerForm.$invalid" ng-click="sendPlayerMail()">
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- End Form Contact -->
+                                <div class="result"></div>
+                            </div>
+                        </div>
+                        <!-- End Right Content -->
+                    </div>
+                </section>
+                <!-- End Content Central -->
+                <!-- Prove It Banner-->
+                <prove-it></prove-it>
+            </section>
+            <!-- End Section Area - Content Central -->
+           

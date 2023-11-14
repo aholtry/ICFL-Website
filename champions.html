@@ -1,0 +1,86 @@
+﻿
+        <div>
+            <!-- Section Title -->
+            <section class="section-title img-about">
+                <div class="overlay-bg"></div>
+                <div class="container">
+                    <h1>Championships</h1>
+                </div>
+            </section>
+            <!-- End Section Title -->
+            <!-- Section Area - Content Central -->
+            <section class="content-info">
+                <div class="crumbs">
+                    <div class="container">
+                        <ul>
+                            <li><a ui-sref="home">Home</a></li>
+                            <li>/</li>
+                            <li>Championships</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="semiboxshadow text-center">
+                    <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+                </div>
+                <!-- Content Central -->
+                <div class="container padding-top">
+                    <div class="row">
+                        <!-- content Championships -->
+                        <div class="col-md-12">
+                            <!-- Content - Group A-->
+                            <div class="panel-box" ng-repeat="item in champions | orderBy: '-year'">
+                                <div class="titles">
+                                    <h4>{{item.year}} ICFL Bowl {{item.roman}}: Champion {{item.team}}</h4>
+                                </div>
+                                <!-- Item champion -->
+                                <div style="padding:0px 15px 15px 15px;" class="row clubs-teams">
+                                    <!-- Item team -->
+                                    <table class="table table-striped table-bordered" style="width:300px; float:left;">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Team
+                                                </th>
+                                                <th>
+                                                    Score
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    {{item.team}} {{item.championRecord}}
+                                                </td>
+                                                <td>
+                                                    {{item.championScore}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    {{item.opponent}} {{item.opponentRecord}}
+                                                </td>
+                                                <td>
+                                                    {{item.opponentScore}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <img class="img-responsive" style="width:600px; float:right;" src="{{item.image}}" />
+                                    <!-- End Item team -->
+                                </div>
+                                <!--<div style="text-align:center">
+                                    <img src="{{item.image}}" />
+                                </div>-->
+                                <!-- End Item champion -->
+                            </div>
+                            <!-- End Content - Group A-->
+                        </div>
+                    </div>
+                </div>
+                <!-- End Content Central -->
+                <!-- Prove It Banner-->
+                <prove-it></prove-it>
+            </section>
+            <!-- End Section Area - Content Central -->
+        </div>
+       

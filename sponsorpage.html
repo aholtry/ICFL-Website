@@ -1,0 +1,40 @@
+﻿
+        <div>
+            <!-- Section Title -->
+            <section class="section-title img-about">
+                <div class="overlay-bg"></div>
+                <div class="container">
+                    <h1>Sponsors</h1>
+                </div>
+            </section>
+            <!-- End Section Title -->
+            <!-- Section Area - Content Central -->
+            <section class="content-info">
+                <div class="crumbs">
+                    <div class="container">
+                        <ul>
+                            <li><a ui-sref="home">Home</a></li>
+                            <li>/</li>
+                            <li>Sponsors</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<div class="semiboxshadow text-center">
+                    <img src="img/img-theme/shp.png" class="img-responsive" alt="">
+                </div>-->
+                <!-- Content Central -->
+                <div class="container">
+                    <div class="row">
+                        <div ng-repeat="sponsor in sponsors" style="display:inline-block">
+                            <img src="{{sponsor.image}}" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+                <!-- End Content Central -->
+
+                <!-- Prove It Banner-->
+                <prove-it></prove-it>
+            </section>
+            <!-- End Section Area - Content Central -->
+        </div>
+        
